@@ -26,7 +26,7 @@ module VagrantPlugins
 
           # Find the image
           env[:ui].info(I18n.t("vagrant_openstack.finding_image"))
-          image = find_matching(env[:openstack_compute].images, config.image)
+          image = env[:openstack_compute].images.get(config.image)
           raise Errors::NoMatchingImage if !image
 
           # Figure out the name for the server
