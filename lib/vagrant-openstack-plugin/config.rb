@@ -121,6 +121,8 @@ module VagrantPlugins
       attr_accessor :orchestration_cfn_template_url
       attr_accessor :orchestration_cfn_template_parameters
 
+      attr_accessor :command_checks_user_data_finished
+
       def initialize
         @api_key  = UNSET_VALUE
         @endpoint = UNSET_VALUE
@@ -151,6 +153,7 @@ module VagrantPlugins
         @orchestration_cfn_template_file = UNSET_VALUE
         @orchestration_cfn_template_url = UNSET_VALUE
         @orchestration_cfn_template_parameters = UNSET_VALUE
+        @command_checks_user_data_finished = UNSET_VALUE
       end
 
       def finalize!
@@ -193,6 +196,8 @@ module VagrantPlugins
         @orchestration_cfn_template_file = nil if @orchestration_cfn_template_file == UNSET_VALUE
         @orchestration_cfn_template_url = nil if @orchestration_cfn_template_url == UNSET_VALUE
         @orchestration_cfn_template_parameters = nil if @orchestration_cfn_template_parameters == UNSET_VALUE
+
+        @command_checks_user_data_finished = nil if  @command_checks_user_data_finished == UNSET_VALUE
       end
 
       def validate(machine)
