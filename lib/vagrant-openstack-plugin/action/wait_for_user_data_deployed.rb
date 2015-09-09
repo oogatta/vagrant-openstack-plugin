@@ -23,7 +23,7 @@ module VagrantPlugins
               break if env[:interrupted]
 
               @logger.info 'run command that checks user data has deployed.'
-              checker = config.command_checks_user_data_finished || '[[ -e /tmp/naohiro.ohgata ]]'
+              checker = config.command_checks_user_data_finished || '[[ -e /tmp/userdata-deployed ]]'
               break if env[:machine].communicate.execute(checker, error_check: false).eql?(0)
             rescue Errno::ENETUNREACH, Errno::EHOSTUNREACH
             end
